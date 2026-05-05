@@ -1,0 +1,7 @@
+com\individual\atividade\model\VeiculoDTO.class
+com\individual\atividade\service\VeiculoService.class
+com\individual\atividade\controller\VeiculoAPIController.class
+com\individual\atividade\model\ManutecaoDTO.class
+com\individual\atividade\repository\VeiculoDAO.class
+com\individual\atividade\AtividadeApplication.class
+com\individual\atividade\repository\Conexao.class
