@@ -5,9 +5,11 @@
 package com.individual.atividade.service;
 
 import com.individual.atividade.model.ManutecaoDTO;
+import com.individual.atividade.model.UsuarioDTO;
 import com.individual.atividade.model.VeiculoDTO;
 import com.individual.atividade.repository.VeiculoDAO;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,11 +29,19 @@ public class VeiculoService {
     public List<ManutecaoDTO> lerManutecao() {
         return repository.lerManutecao();
     }
-    public void adicionar(ManutecaoDTO manutecao) {
-        
+    public List<UsuarioDTO> lerUsuario() {
+        return repository.lerUsuario();
+    }    
+    public void adicionar(ManutecaoDTO manutecao) {        
         repository.adicionar(manutecao);
     }
+    public void adicionarUsuario(UsuarioDTO usuario) {        
+        repository.adicionarUsuario(usuario);
+    }    
     public ManutecaoDTO ValorTotal(int id) {
         return repository.ValorTotal(id);
-    }    
+    }
+    public UsuarioDTO Login(String nome, String email){
+        return repository.Login(nome, email);
+    }
 }

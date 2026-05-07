@@ -5,6 +5,7 @@
 package com.individual.atividade.repository;
 
 import com.individual.atividade.model.ManutecaoDTO;
+import com.individual.atividade.model.UsuarioDTO;
 import com.individual.atividade.model.VeiculoDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -64,8 +65,30 @@ public class VeiculoDAO {
         }
         return ler;
     }    
-    
- public void adicionar(ManutecaoDTO manutecao) {
+    public List<UsuarioDTO> lerUsuario() {
+        List<UsuarioDTO> ler = new ArrayList();
+        try {
+            Connection conn = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            
+            stmt = conn.prepareStatement("SELECT * FROM usuario");
+            rs = stmt.executeQuery();
+            
+            while(rs.next()) {
+                UsuarioDTO usuario = new UsuarioDTO();
+                usuario.setId_usuario(rs.getInt("id_usuario"));
+                usuario.setNome(rs.getString("nome"));
+                usuario.setEmail(rs.getString("email"));
+                usuario.setSenha(rs.getString("senha"));
+                ler.add(usuario);
+            }
+        } catch(SQLException e ) {
+            e.printStackTrace();
+        }
+        return ler;
+    }    
+public void adicionar(ManutecaoDTO manutecao) {
         try {
             Connection conn = Conexao.conectar();
             PreparedStatement stmt = null;
@@ -74,6 +97,22 @@ public class VeiculoDAO {
             stmt.setInt(1, manutecao.getId_veiculo());
             stmt.setString(2, manutecao.getServiço());
             stmt.setDouble(3, manutecao.getPreço());
+            stmt.executeUpdate();
+            
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+    }
+public void adicionarUsuario(UsuarioDTO usuario) {
+        try {
+            Connection conn = Conexao.conectar();
+            PreparedStatement stmt = null;
+            stmt = conn.prepareStatement("INSERT INTO usuario (id_usuario, nome, email,senha)"
+                    + "VALUES (?,?,?)");
+            stmt.setInt(1, usuario.getId_usuario());
+            stmt.setString(2, usuario.getNome());
+            stmt.setString(3, usuario.getEmail());
+            stmt.setString(4, usuario.getSenha());
             stmt.executeUpdate();
             
         } catch(SQLException e) {
@@ -100,6 +139,26 @@ public ManutecaoDTO ValorTotal(int id) {
         }
         return total;
     }
- 
+    public UsuarioDTO Login(String nome, String email) {
+        UsuarioDTO auth = new UsuarioDTO();
+        try {
+            Connection conn = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            
+            stmt = conn.prepareStatement("SELECT * FROM usuario WHERE nome=? and email=?");
+            stmt.setString(1, nome);
+            stmt.setString(2, email);
+            rs = stmt.executeQuery();
+            
+            if(rs.next()) {
+                auth.setNome(rs.getString("nome"));
+                auth.setEmail(rs.getString("email"));
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return auth;
+    } 
 }
 

@@ -1,7 +1,11 @@
+com\individual\atividade\controller\Teste.class
+com\individual\atividade\service\TokenService.class
 com\individual\atividade\model\VeiculoDTO.class
 com\individual\atividade\service\VeiculoService.class
+com\individual\atividade\chave\GeradorDeChave.class
 com\individual\atividade\controller\VeiculoAPIController.class
 com\individual\atividade\model\ManutecaoDTO.class
+com\individual\atividade\model\UsuarioDTO.class
 com\individual\atividade\repository\VeiculoDAO.class
 com\individual\atividade\AtividadeApplication.class
 com\individual\atividade\repository\Conexao.class

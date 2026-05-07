@@ -5,6 +5,7 @@
 package com.individual.atividade.controller;
 
 import com.individual.atividade.model.ManutecaoDTO;
+import com.individual.atividade.model.UsuarioDTO;
 import com.individual.atividade.model.VeiculoDTO;
 import com.individual.atividade.service.VeiculoService;
 import java.util.List;
@@ -33,14 +34,31 @@ public class VeiculoAPIController {
 @GetMapping("/manutecoes")
     public List<ManutecaoDTO> lerManutecao() {
         return VeiculoService.lerManutecao();
-    }    
+    }
+@GetMapping("/usuario")
+    public List<UsuarioDTO> lerUsuario() {
+        return VeiculoService.lerUsuario();
+    }     
 @PostMapping("/manutecoes")
     public String criar(@RequestBody ManutecaoDTO manutecao) {
         VeiculoService.adicionar(manutecao);
         return "serviço adicionado com sucesso!";
     }
+@PostMapping("/usuario")
+    public String adicionar(@RequestBody UsuarioDTO usuario) {
+        VeiculoService.adicionarUsuario(usuario);
+        return "usuario adicionado com sucesso!";
+    }    
 @GetMapping("/{id}/gastos")
     public ManutecaoDTO ValorTotal(@PathVariable int id) {
         return VeiculoService.ValorTotal(id);
+    }
+@PostMapping("/login")
+    public Object Login(@RequestBody UsuarioDTO user){
+        UsuarioDTO usuarioLogado =VeiculoService.Login(user.getNome(), user.getEmail());
+        if(user!= null){
+          return user;  
+        }
+        return  "Email ou senha errada";      
     }    
 }

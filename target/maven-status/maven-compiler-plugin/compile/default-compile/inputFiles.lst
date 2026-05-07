@@ -1,7 +1,11 @@
 C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\AtividadeApplication.java
+C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\chave\GeradorDeChave.java
+C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\controller\Teste.java
 C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\controller\VeiculoAPIController.java
 C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\model\ManutecaoDTO.java
+C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\model\UsuarioDTO.java
 C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\model\VeiculoDTO.java
 C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\repository\Conexao.java
 C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\repository\VeiculoDAO.java
+C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\service\TokenService.java
 C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\service\VeiculoService.java
