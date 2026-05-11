@@ -12,7 +12,9 @@ import io.jsonwebtoken.security.Keys;
 import java.util.Date;
 import javax.crypto.SecretKey;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 /**
  *
@@ -26,9 +28,9 @@ public class TokenService {
         byte[] keyBytes = Decoders.BASE64.decode(this.secret);
         return Keys.hmacShaKeyFor(keyBytes);
     }
-    public String gerarToken() {
+    public String gerarToken(String email) {
         return Jwts.builder()
-                .subject("luzia_dossantos@cognis.com")
+                .subject(email)
                 .issuedAt(new Date())
                 .expiration(new Date(System.currentTimeMillis() + 300000))
                 .signWith(getSignKey())
@@ -42,7 +44,7 @@ public boolean validarToken(String token) {
                     .parseClaimsJws(token);
             return true;
         } catch (JwtException | IllegalArgumentException e) {
-            return false;
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,"Token expirado ou invalido");
         }
     }
     public Claims extrairClaims(String token) {
@@ -51,5 +53,6 @@ public boolean validarToken(String token) {
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
-    }    
+    }
+    
 }

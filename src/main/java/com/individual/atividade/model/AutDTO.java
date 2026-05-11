@@ -8,30 +8,19 @@ package com.individual.atividade.model;
  *
  * @author Aluno
  */
-public class UsuarioDTO {
-    private int id_usuario;
+public class AutDTO {
     private String nome;
     private String email;
-    private String senha;
-
-    public UsuarioDTO() {
+    public String senha;
+    public AutDTO() {
     }
 
-    public UsuarioDTO(int id_usuario ,String nome, String email, String senha) {
-        this.id_usuario= id_usuario;
+    public AutDTO( String nome, String email,String senha) {
         this.nome = nome;
         this.email = email;
-        this.senha = senha;
+        this.senha =senha;
     }
 
-    public int getId_usuario() {
-        return id_usuario;
-    }
-
-    public void setId_usuario(int id_usuario) {
-        this.id_usuario = id_usuario;
-    }
-    
     public String getNome() {
         return nome;
     }
@@ -55,5 +44,5 @@ public class UsuarioDTO {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-        
+    
 }

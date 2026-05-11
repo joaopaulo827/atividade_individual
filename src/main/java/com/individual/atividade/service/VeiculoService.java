@@ -4,12 +4,12 @@
  */
 package com.individual.atividade.service;
 
+import com.individual.atividade.model.AutDTO;
 import com.individual.atividade.model.ManutecaoDTO;
 import com.individual.atividade.model.UsuarioDTO;
 import com.individual.atividade.model.VeiculoDTO;
 import com.individual.atividade.repository.VeiculoDAO;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,7 +41,7 @@ public class VeiculoService {
     public ManutecaoDTO ValorTotal(int id) {
         return repository.ValorTotal(id);
     }
-    public UsuarioDTO Login(String nome, String email){
-        return repository.Login(nome, email);
+    public AutDTO Login(String nome, String email){
+        return repository.login(nome, email);
     }
 }

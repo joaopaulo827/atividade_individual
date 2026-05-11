@@ -1,7 +1,11 @@
 C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\AtividadeApplication.java
 C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\chave\GeradorDeChave.java
-C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\controller\Teste.java
+C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\controller\EntradaController.java
+C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\controller\ManutecaoController.java
+C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\controller\UsuarioController.java
 C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\controller\VeiculoAPIController.java
+C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\model\AutDTO.java
+C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\model\LoginDTO.java
 C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\model\ManutecaoDTO.java
 C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\model\UsuarioDTO.java
 C:\Users\Aluno\Downloads\atividade\atividade\src\main\java\com\individual\atividade\model\VeiculoDTO.java

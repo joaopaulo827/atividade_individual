@@ -4,6 +4,7 @@
  */
 package com.individual.atividade.repository;
 
+import com.individual.atividade.model.AutDTO;
 import com.individual.atividade.model.ManutecaoDTO;
 import com.individual.atividade.model.UsuarioDTO;
 import com.individual.atividade.model.VeiculoDTO;
@@ -103,12 +104,13 @@ public void adicionar(ManutecaoDTO manutecao) {
             e.printStackTrace();
         }
     }
+
 public void adicionarUsuario(UsuarioDTO usuario) {
         try {
             Connection conn = Conexao.conectar();
             PreparedStatement stmt = null;
             stmt = conn.prepareStatement("INSERT INTO usuario (id_usuario, nome, email,senha)"
-                    + "VALUES (?,?,?)");
+                    + "VALUES (?,?,?,?)");
             stmt.setInt(1, usuario.getId_usuario());
             stmt.setString(2, usuario.getNome());
             stmt.setString(3, usuario.getEmail());
@@ -119,6 +121,7 @@ public void adicionarUsuario(UsuarioDTO usuario) {
             e.printStackTrace();
         }
     }
+
 public ManutecaoDTO ValorTotal(int id) {
         ManutecaoDTO total = new ManutecaoDTO();
         try {
@@ -139,26 +142,27 @@ public ManutecaoDTO ValorTotal(int id) {
         }
         return total;
     }
-    public UsuarioDTO Login(String nome, String email) {
-        UsuarioDTO auth = new UsuarioDTO();
+    public AutDTO login(String email, String senha) {
+        AutDTO usuario = new AutDTO();
         try {
             Connection conn = Conexao.conectar();
-            PreparedStatement stmt = null;
+            PreparedStatement stmt = null;        
             ResultSet rs = null;
             
-            stmt = conn.prepareStatement("SELECT * FROM usuario WHERE nome=? and email=?");
-            stmt.setString(1, nome);
-            stmt.setString(2, email);
-            rs = stmt.executeQuery();
+            stmt = conn.prepareStatement("SELECT * FROM usuario WHERE email = ? AND senha = ?");
             
-            if(rs.next()) {
-                auth.setNome(rs.getString("nome"));
-                auth.setEmail(rs.getString("email"));
+             stmt.setString(1, email);
+             stmt.setString(2, senha);
+             rs = stmt.executeQuery();
+
+            if (rs.next()) {         
+                usuario.setNome(rs.getString("nome"));
+                usuario.setEmail(rs.getString("email"));
             }
-        } catch(SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return auth;
+        return usuario;
     } 
 }
 
